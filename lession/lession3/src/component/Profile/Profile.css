@@ -1,0 +1,12 @@
+.profile {
+    padding: 20px 10px;
+    background-color: #282c34;
+    width: 300px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.img-profile {
+    width: 200px;
+}

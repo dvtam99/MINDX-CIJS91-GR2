@@ -1,43 +1,19 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
-
-const SearchInput = () => {
-  return (
-    <div className="input">
-      <input type="text" placeholder="Enter your task here ..." />
-    </div>
-  );
-};
-
-function Task(props) {
-  return (
-    <div>
-      <input type="radio" />
-      <span>{props.title}</span>
-    </div>
-  );
-}
-
-const Footer = (props) => {
-  return (
-    <div>
-      <span>{props.taskTodo} Tasks left!!</span>
-      <span>MindX</span>
-    </div>
-  );
-};
+import Profile from "./component/Profile";
 
 function App() {
-  let taskList = ["an com", "di hoc", "di lam", "nau cowm", "di tam"];
+  let imgUrl =
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Katherine_Johnson_1983.jpg/500px-Katherine_Johnson_1983.jpg";
+  const onCLickBtn = () => {
+    console.log("clicked me");
+  };
   return (
-    <div className="App container">
-      <SearchInput />
-      <div className="task-list">
-        {taskList.map((task) => (
-          <Task title={task} />
-        ))}
-      </div>
-      <Footer taskTodo={taskList.length}></Footer>
+    <div className="App">
+      <header className="App-header">
+        <button onClick={onCLickBtn}>Click</button>
+        <Profile imgUrl={imgUrl} name={"Katherine Johnson"} />
+      </header>
     </div>
   );
 }
