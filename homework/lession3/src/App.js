@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import TaskInput from "./components/TaskInput";
 import Footer from "./components/Footer";
@@ -19,13 +19,13 @@ function App() {
   };
 
   const onChecked = (checked, index) => {
-    debugger;
     let newArr = [...taskList];
     newArr[index].isDone = checked;
     setTaskList(newArr);
   };
   return (
     <div className="App container">
+      {/* <Button variant="contained">new btn</Button> */}
       <TaskInput onTaskChange={onTaskChange} />
 
       <div className="task-list">
