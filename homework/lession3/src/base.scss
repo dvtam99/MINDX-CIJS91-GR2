@@ -1,0 +1,17 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: rgb(186, 73, 73);
+$secondary-color: #3545f4;
+$third-color: #18a72e;
+
+.pomodoro {
+  color: #fff;
+  background-color: $primary-color;
+}
+.shortBreak {
+  color: #771313;
+  background-color: $secondary-color;
+}
+.longBreak {
+  color: #fff;
+  background-color: $third-color;
+}

@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
+import "./base.scss"
 import "./App.css";
 import TaskInput from "./components/TaskInput";
 import Footer from "./components/Footer";
 import Task from "./components/Task";
+import { PomoCT } from "./contexts";
+import Header from "./components/Header";
 
 function App() {
-  // let taskList = ["an com", "di hoc", "di lam", "nau cowm", "di tam"];
   const [taskList, setTaskList] = useState([
     { isDone: false, taskName: "Danh rang" },
     { isDone: true, taskName: "An sang" },
@@ -24,23 +26,39 @@ function App() {
     setTaskList(newArr);
   };
   return (
-    <div className="App container">
-      {/* <Button variant="contained">new btn</Button> */}
-      <TaskInput onTaskChange={onTaskChange} />
+    <PomoCT.Provider value={{ mode: "longBreak", timer: "25" }}>
+      <PomoCT.Consumer>
+        {(pomoCtx) => {
+          console.log(pomoCtx)
+          debugger
+          return (
+            <div className={`App container ${pomoCtx.mode}`}>
+              <Header />
+              {/* <Button variant="contained">new btn</Button> */}
 
-      <div className="task-list">
-        {taskList.map((task, index) => (
-          <Task
-            title={task.taskName}
-            isDone={task.isDone}
-            key={index}
-            index={index}
-            onChecked={onChecked}
-          />
-        ))}
-      </div>
-      <Footer taskTodo={taskList.length}></Footer>
-    </div>
+
+              <TaskInput onTaskChange={onTaskChange} />
+
+              <div className="task-list">
+                {taskList.map((task, index) => (
+                  <Task
+                    title={task.taskName}
+                    isDone={task.isDone}
+                    key={index}
+                    index={index}
+                    onChecked={onChecked}
+                  />
+                ))}
+              </div>
+              <Footer taskTodo={taskList.length}></Footer>
+            </div>
+          )
+        }}
+
+      </PomoCT.Consumer>
+
+    </PomoCT.Provider>
+
   );
 }
 
