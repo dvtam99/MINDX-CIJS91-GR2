@@ -1,17 +1,30 @@
 $font-stack: Helvetica, sans-serif;
 $primary-color: rgb(186, 73, 73);
-$secondary-color: #3545f4;
-$third-color: #18a72e;
+$secondary-color: rgb(56 132 137);
+$third-color: rgb(57, 112, 151);
 
 .pomodoro {
-  color: #fff;
+  color: #fff !important;
   background-color: $primary-color;
 }
 .shortBreak {
-  color: #771313;
+  color: #fff !important;
   background-color: $secondary-color;
 }
 .longBreak {
-  color: #fff;
+  color: #fff !important;
   background-color: $third-color;
+}
+
+@for $i from 1 through 100 {
+  .w-#{$i}pc {
+    width: calc(#{$i} * 1%);
+  }
+}
+
+.d-flex {
+  display: flex;
+}
+.jus {
+  justify-content: center;
 }

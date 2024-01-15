@@ -1,4 +1,16 @@
 .header {
   height: 60px;
   border-bottom: 1px solid black;
+  display: flex;
+
+  align-items: center;
+  .logo {
+    font-weight: 900;
+    font-size: x-large;
+  }
+}
+.pre-header {
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
