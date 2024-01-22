@@ -11,6 +11,7 @@ const BtnPomo = () => {
           onClick={() => setMode(btn)}
           key={btn.name}
           className={btn.name}
+          style={{ color: "white" }}
         >
           {btn.name}
         </Button>

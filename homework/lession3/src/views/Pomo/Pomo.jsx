@@ -6,6 +6,7 @@ import Task from "../../components/Task";
 import { PomoCT } from "../../contexts";
 import Header from "../../components/Header";
 import BtnPomo from "./Components/BtnPomo";
+import TimerContainer from "./Components/TimerContainer";
 
 function Pomo() {
   const [taskList, setTaskList] = useState([
@@ -26,35 +27,38 @@ function Pomo() {
   };
 
   const listMode = [
-    { name: "pomodoro", timer: 25 },
-    { name: "shortBreak", timer: 5 },
-    { name: "longBreak", timer: 10 },
+    { name: "pomodoro", timer: 25, color: "$primary-color" },
+    { name: "shortBreak", timer: 5, color: "$secondary-color" },
+    { name: "longBreak", timer: 10, color: "$third-color" },
   ];
 
-  const [mode, setMode] = useState({ name: "pomodoro", timer: 25 });
+  const [mode, setMode] = useState(listMode[0]);
 
   return (
     <PomoCT.Provider value={{ mode, setMode, listMode }}>
       <PomoCT.Consumer>
         {(pomoCt) => {
           return (
-            <div className={`Pomo App container ${pomoCt.mode.name}`}>
-              <Header />
-              <BtnPomo />
-              <TaskInput onTaskChange={onTaskChange} />
+            <div className={`Pomo container ${pomoCt.mode.name}`}>
+              <div>
+                <Header />
+                {/* <BtnPomo /> */}
+                <TimerContainer />
+                <TaskInput onTaskChange={onTaskChange} />
 
-              <div className="task-list">
-                {taskList.map((task, index) => (
-                  <Task
-                    title={task.taskName}
-                    isDone={task.isDone}
-                    key={index}
-                    index={index}
-                    onChecked={onChecked}
-                  />
-                ))}
+                <div className="task-list">
+                  {taskList.map((task, index) => (
+                    <Task
+                      title={task.taskName}
+                      isDone={task.isDone}
+                      key={index}
+                      index={index}
+                      onChecked={onChecked}
+                    />
+                  ))}
+                </div>
+                <Footer taskTodo={taskList.length}></Footer>
               </div>
-              <Footer taskTodo={taskList.length}></Footer>
             </div>
           );
         }}

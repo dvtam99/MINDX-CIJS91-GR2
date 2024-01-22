@@ -1,0 +1,42 @@
+@import "../../../../variable.scss";
+.timer-con {
+  max-width: 680px;
+  height: 375px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px 0px 30px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  width: 100%;
+  .timer {
+    font-size: 120px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  .btn-con {
+    .btn-start {
+      cursor: pointer;
+      border: none;
+      margin: 20px 0px 0px;
+      padding: 0px 12px;
+      border-radius: 4px;
+      box-shadow: rgb(235, 235, 235) 0px 6px 0px;
+      // font-family: ArialRounded;
+      font-size: 22px;
+      height: 55px;
+      // color: rgb(186, 73, 73);
+      font-weight: bold;
+      width: 200px;
+      background-color: white;
+      transition: color 0.5s ease-in-out 0s;
+    }
+    .pomodoro {
+      color: $primary-color;
+    }
+    .shortBreak {
+      color: $secondary-color;
+    }
+    .longBreak {
+      color: $third-color;
+    }
+  }
+}

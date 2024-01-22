@@ -1,18 +1,11 @@
-$font-stack: Helvetica, sans-serif;
-$primary-color: rgb(186, 73, 73);
-$secondary-color: rgb(56 132 137);
-$third-color: rgb(57, 112, 151);
-
+@import "variable.scss";
 .pomodoro {
-  color: #fff !important;
   background-color: $primary-color;
 }
 .shortBreak {
-  color: #fff !important;
   background-color: $secondary-color;
 }
 .longBreak {
-  color: #fff !important;
   background-color: $third-color;
 }
 
@@ -26,5 +19,9 @@ $third-color: rgb(57, 112, 151);
   display: flex;
 }
 .jus {
+  justify-content: center;
+}
+.container {
+  display: flex;
   justify-content: center;
 }
